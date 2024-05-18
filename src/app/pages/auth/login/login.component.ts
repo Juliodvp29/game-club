@@ -10,6 +10,7 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  
   constructor(public auth: AuthService) {
   }
 }

@@ -11,6 +11,6 @@ export const appConfig: ApplicationConfig = {
     clientId: 'ZcgT9IewmgPe22Yas8dVuc2SrJl1bzYq',
     authorizationParams: {
       redirect_uri: window.location.origin
-    }
+    },
   }),]
 };
