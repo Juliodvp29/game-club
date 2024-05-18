@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Router, RouterOutlet } from '@angular/router';
+import { Component, OnInit, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
+import { AuthenticationService } from './services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +11,12 @@ import {Router, RouterOutlet } from '@angular/router';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private router: Router){
+  public auth = inject(AuthenticationService);
 
+  constructor() { }
+
+  ngOnInit() {
+    this.auth.issLogged()
   }
 
-  ngOnInit(): void {
-  }
-  
 }
