@@ -1,21 +1,28 @@
 import { AuthUser } from '@/app/models/AuthUser';
-import { Component, Input, OnInit } from '@angular/core';
+import { AuthenticationService } from '@/app/services/authentication.service';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
 export class NavComponent implements OnInit {
 
+  public auth = inject(AuthenticationService)
   @Input() user!: AuthUser;
 
   constructor() { }
 
   ngOnInit() {
-    console.log('Avatar: ', this.user.picture)
+
+  }
+
+  logout() {
+    this.auth.logout()
   }
 
 }

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './guard/auth.guard';
+import { AppComponent } from './app.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,7 @@ export const routes: Routes = [
   {
     path: '**',
     loadComponent: () => import('@pages/not-found/not-found.component').then(p => p.NotFoundComponent),
-  }
+  },
+
 
 ];

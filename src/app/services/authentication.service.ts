@@ -22,7 +22,7 @@ export class AuthenticationService {
         })
       ).subscribe()
     } else {
-      this.router.navigate(['dashboard'])
+      this.router.navigate(['signup'])
     }
   }
 
@@ -31,6 +31,7 @@ export class AuthenticationService {
   }
 
   public async logout() {
+    this.ls.removeItem('auth-user');
     this.auth.logout({ logoutParams: { returnTo: 'http://localhost:4200/' } });
   }
 
