@@ -1,9 +1,8 @@
-import { Injectable, inject } from '@angular/core';
+import { Inject, Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { LocalStorageService } from './local-storage.service';
 import { Observable, tap } from 'rxjs';
-import { AuthUser } from '../models/AuthUser';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +23,15 @@ export class AuthenticationService {
       ).subscribe()
     } else {
       this.router.navigate(['dashboard'])
-
     }
   }
+
+  public isAuthenticated(): boolean {
+    return this.auth.isAuthenticated$ ? true : false;
+  }
+
+  public async logout() {
+    this.auth.logout({ logoutParams: { returnTo: 'http://localhost:4200/' } });
+  }
+
 }

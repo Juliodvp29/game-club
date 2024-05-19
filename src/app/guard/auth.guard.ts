@@ -9,8 +9,8 @@ export const authGuard: CanActivateFn = (route, state) => {
 
   let activate = false;
 
-
   const isLogged = ls.get('auth-user')
+
   if (isLogged) {
     activate = true;
   } else {

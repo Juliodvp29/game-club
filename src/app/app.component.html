@@ -1,1 +1,4 @@
+@if(this.auth.isAuthenticated()){
+<app-nav [user]="user" />
+}
 <router-outlet />
